@@ -1,0 +1,20 @@
+version: '3.7'
+
+networks:
+  backend:
+    external:
+      name: laradock_backend
+
+services:
+  app:
+    container_name: 'passport_api_game'
+    build:
+      context: '../'
+      dockerfile: './docker/Dockerfile'
+    ports:
+      - "22:22"
+      - "8181:8181"
+    networks:
+      - backend
+    tty:
+      true
